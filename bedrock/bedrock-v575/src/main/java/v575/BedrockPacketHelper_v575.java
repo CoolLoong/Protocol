@@ -19,13 +19,12 @@ public class BedrockPacketHelper_v575 extends BedrockPacketHelper_v567patch {
     @Override
     protected void registerSoundEvents() {
         super.registerSoundEvents();
-
-        this.soundEvents.remove(458); // Remove old undefined value
-        this.soundEvents.put(458, SoundEvent.INSERT);
-        this.soundEvents.put(459, SoundEvent.PICKUP);
-        this.soundEvents.put(460, SoundEvent.INSERT_ENCHANTED);
-        this.soundEvents.put(461, SoundEvent.PICKUP_ENCHANTED);
-        this.soundEvents.put(462, SoundEvent.UNDEFINED);
+        this.soundEvents.remove(462); // Remove old undefined value
+        this.soundEvents.put(462, SoundEvent.BRUSH);
+        this.soundEvents.put(463, SoundEvent.BRUSH_COMPLETED);
+        this.soundEvents.put(464, SoundEvent.SHATTER_DECORATED_POT);
+        this.soundEvents.put(465, SoundEvent.BREAK_DECORATED_POD);
+        this.soundEvents.put(466, SoundEvent.UNDEFINED);
     }
 
     @Override
@@ -65,7 +64,7 @@ public class BedrockPacketHelper_v575 extends BedrockPacketHelper_v567patch {
                 descriptor = new DeferredDescriptor(helper.readString(buffer), buffer.readUnsignedShortLE());
                 break;
             case COMPLEX_ALIAS:
-                descriptor = new ComplexAliasDescriptor(this.readString(buffer));
+                descriptor = new ComplexAliasDescriptor(helper.readString(buffer));
                 break;
             default:
                 descriptor = InvalidDescriptor.INSTANCE;
